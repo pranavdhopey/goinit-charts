@@ -1,0 +1,27 @@
+apiVersion: v1
+entries:
+  hello-apps:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-07-21T19:42:53.3074942+05:30"
+    dependencies:
+    - condition: angular.enabled
+      name: angular
+      repository: file://charts/angular
+    - condition: react.enabled
+      name: react
+      repository: file://charts/react
+    - condition: spring.enabled
+      name: spring
+      repository: file://charts/spring
+    - condition: nodejs.enabled
+      name: nodejs
+      repository: file://charts/nodejs
+    description: A Helm chart for Kubernetes
+    digest: 1f4d17c8cf292eb3a4bdfa79f6b95f2f197ea6043bae5bc99c48b4dad0a64017
+    name: hello-apps
+    type: application
+    urls:
+    - hello-apps-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-07-21T19:42:53.3044186+05:30"
