@@ -22,6 +22,6 @@ entries:
     name: hello-apps
     type: application
     urls:
-    - https://pranavdhopey.github.io/goinit-charts/hello-apps-0.1.0.tgz
+    - https://pranavdhopey.github.io/goinit-charts/charts/hello-apps-0.1.0.tgz
     version: 0.1.0
 generated: "2023-07-21T21:14:18.7379139+05:30"
