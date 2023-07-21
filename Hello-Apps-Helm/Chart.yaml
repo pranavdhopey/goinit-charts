@@ -6,14 +6,14 @@ version: 0.1.0
 appVersion: "1.0.0"
 dependencies:
 - name: angular
-  repository: "file://charts/angular" 
+  repository: "file://../charts/angular" 
   condition: angular.enabled
 - name: react
-  repository: "file://charts/react" 
+  repository: "file://../charts/react" 
   condition: react.enabled
 - name: spring
-  repository: "file://charts/spring" 
+  repository: "file://../charts/spring" 
   condition: spring.enabled
 - name: nodejs
-  repository: "file://charts/nodejs" 
+  repository: "file://../charts/nodejs" 
   condition: nodejs.enabled  

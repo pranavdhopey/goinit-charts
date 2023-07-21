@@ -1,5 +1,5 @@
 angular:
-  enabled: false
+  enabled: true
   image:
     repository: registry.gitlab.com/pranav-group/angularapp
     pullPolicy: IfNotPresent
