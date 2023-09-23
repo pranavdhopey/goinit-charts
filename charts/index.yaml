@@ -3,7 +3,7 @@ entries:
   hello-apps:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-09-23T21:58:14.8528486+05:30"
+    created: "2023-09-23T22:05:00.527518+05:30"
     dependencies:
     - condition: angular.enabled
       name: angular
@@ -26,6 +26,6 @@ entries:
     name: hello-apps
     type: application
     urls:
-    - https://github.com/pranavdhopey/goinit-charts/tree/master/charts/hello-apps-0.1.0.tgz
+    - https://pranavdhopey.github.io/goinit-charts/charts/hello-apps-0.1.0.tgz
     version: 0.1.0
-generated: "2023-09-23T21:58:14.7829395+05:30"
+generated: "2023-09-23T22:05:00.504987+05:30"
