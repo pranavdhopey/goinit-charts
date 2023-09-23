@@ -4,6 +4,11 @@ metadata:
   name: {{ include "angular.fullname" . }}
   labels:
     {{- include "angular.labels" . | nindent 4 }}
+    {{- with .Values.labels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }} 
+  annotations:
+    {{- toYaml .Values.service.annotations | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -13,3 +18,6 @@ spec:
       name: http
   selector:
     {{- include "angular.selectorLabels" . | nindent 4 }}
+    {{- with .Values.selectorLabels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}  

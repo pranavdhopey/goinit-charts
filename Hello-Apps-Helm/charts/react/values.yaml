@@ -5,15 +5,18 @@
 replicaCount: 1
 
 image:
-  repository: pranavdhopey22.jfrog.io/docker-local/react-app
+  repository: pranavdhopey/react-app
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "cf19cbfa"
+  tag: "v1"
 
-imagePullSecrets: 
-  - name: jfrog-auth  
+imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
+
+labels: {}
+
+selectorLabels: {}
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -40,6 +43,7 @@ securityContext: {}
 service:
   type: ClusterIP
   port: 80
+  annotations: {}
 
 ingress:
   enabled: false

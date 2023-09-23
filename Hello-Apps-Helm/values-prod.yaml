@@ -1,40 +1,54 @@
 angular:
-  enabled: false
-  env: prod
+  enabled: true
+  replicaCount: 1
   image:
-    repository: registry.gitlab.com/pranav-group/angularapp
+    repository: pranavdhopey/angular-app
     pullPolicy: IfNotPresent
     tag: ""
+  labels:
+    env: prod   
   serviceAccount:
     create: false
-  fullnameOverride: "angular"
+  # fullnameOverride: "angular"
+  service:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
 react:
-  enabled: true
-  env: prod
+  enabled: false
+  replicaCount: 1
   image:
-    repository: pranavdhopey22.jfrog.io/docker-local/react-app
+    repository: pranavdhopey/react-app
     pullPolicy: IfNotPresent
-    tag: "8265bd55"
+    tag: ""
+  labels:
+    env: prod   
   serviceAccount:
     create: false
-  fullnameOverride: "react"
+  # fullnameOverride: "react"
+  service:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
 nodejs:
   enabled: false
-  env: prod
+  replicaCount: 1
   image:
-    repository: registry.gitlab.com/pranav-group/nodejs-app
+    repository: pranavdhopey/nodejs-app
     pullPolicy: IfNotPresent
     tag: ""
+  labels:
+    env: prod   
   serviceAccount:
     create: false
-  fullnameOverride: "nodejs"
+  # fullnameOverride: "nodejs"
 spring:
   enabled: false
-  env: prod
+  replicaCount: 1
   image:
-    repository: pranavdhopey22.jfrog.io/docker-local/spring-app
+    repository: pranavdhopey/spring-app
     pullPolicy: IfNotPresent
     tag: ""
+  labels:
+    env: prod   
   serviceAccount:
     create: false
-  fullnameOverride: "spring"
+  # fullnameOverride: "spring"
