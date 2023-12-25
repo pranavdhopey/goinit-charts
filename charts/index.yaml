@@ -3,7 +3,7 @@ entries:
   hello-apps:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-09-23T22:05:00.527518+05:30"
+    created: "2023-12-25T11:31:12.4758404+05:30"
     dependencies:
     - condition: angular.enabled
       name: angular
@@ -22,10 +22,10 @@ entries:
       repository: file://charts/nodejs
       version: 0.1.0
     description: A Helm chart for Hello Apps
-    digest: c6e772d0316a8793cef8a0ccbf77e2b3950eaeed9c361b6f0782a4674c2513d5
+    digest: 70505588bd2d3c741ba1af7fe69502190830fc4506395896ecdc488abe28aa0f
     name: hello-apps
     type: application
     urls:
-    - https://pranavdhopey.github.io/goinit-charts/charts/hello-apps-0.1.0.tgz
+    - https://pranavdhopey.github.io/goinit-charts/hello-apps-0.1.0.tgz
     version: 0.1.0
-generated: "2023-09-23T22:05:00.504987+05:30"
+generated: "2023-12-25T11:31:12.4519014+05:30"
