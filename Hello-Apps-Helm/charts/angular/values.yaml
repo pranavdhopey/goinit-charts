@@ -44,6 +44,7 @@ service:
   type: ClusterIP
   port: 80
   annotations: {}
+    # cloud.google.com/backend-config: '{"default": "my-backendconfig"}'
 
 ingress:
   enabled: false
@@ -85,3 +86,21 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+backendConfigEnabled: true
+backendConfig:
+  name: "angular-backendconfig"
+  timeoutSec: 30
+  connectionDraining:
+    drainingTimeoutSec: 60  
+  healthCheckEnabled: true
+  healthCheck: 
+    checkIntervalSec: 5
+    timeoutSec: 5
+    healthyThreshold: 2
+    unhealthyThreshold: 2
+    type: "HTTP"
+    requestPath: "/"
+    port: 80
+  securityPolicyName: "my-security-policy"
+  

@@ -9,7 +9,7 @@ angular:
     env: dev  
   serviceAccount:
     create: false
-  # fullnameOverride: "angular"
+  fullnameOverride: "angular"
   service:
     annotations:
       cloud.google.com/neg: '{"ingress":true}'
@@ -24,7 +24,7 @@ react:
     env: dev   
   serviceAccount:
     create: false
-  # fullnameOverride: "react"
+  fullnameOverride: "react"
   service:
     annotations:
       cloud.google.com/neg: '{"ingress":true}'
@@ -39,7 +39,7 @@ nodejs:
     env: dev   
   serviceAccount:
     create: false
-  # fullnameOverride: "nodejs"
+  fullnameOverride: "nodejs"
 spring:
   enabled: false
   replicaCount: 1
@@ -51,14 +51,18 @@ spring:
     env: dev   
   serviceAccount:
     create: false
-  # fullnameOverride: "spring"
+  fullnameOverride: "spring"
 
-managedCertificateEnabled: false
-managedCertificate:
-  name: hello-apps-certificate
-  domains: 
+managedCertificateEnabled: true
+managedCertificates:
+  - name: hello-apps-certificate-1
+    domains: 
     - angular-dev.goinit.net
     - react-dev.goinit.net
+  - name: hello-apps-certificate-2
+    domains: 
+    - nodejs-dev.goinit.net
+    - spring-dev.goinit.net  
 
 frontendConfigEnabled: false
 frontendConfig:
@@ -83,7 +87,7 @@ ingress:
             pathType: Prefix
             backend:
               service:
-                name: dev-react
+                name: react
                 port:
                   number: 80 
     - host: angular-dev.goinit.net
@@ -93,7 +97,7 @@ ingress:
             pathType: Prefix
             backend:
               service:
-                name: dev-angular
+                name: angular
                 port: 
                   number: 80 
   tls: []

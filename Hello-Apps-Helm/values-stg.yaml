@@ -9,7 +9,7 @@ angular:
     env: stg   
   serviceAccount:
     create: false
-  # fullnameOverride: "angular"
+  fullnameOverride: "angular"
   service:
     annotations:
       cloud.google.com/neg: '{"ingress":true}'
@@ -24,7 +24,7 @@ react:
     env: stg   
   serviceAccount:
     create: false
-  # fullnameOverride: "react"
+  fullnameOverride: "react"
   service:
     annotations:
       cloud.google.com/neg: '{"ingress":true}'
@@ -39,7 +39,7 @@ nodejs:
     env: stg   
   serviceAccount:
     create: false
-    # fullnameOverride: "nodejs"
+    fullnameOverride: "nodejs"
 spring:
   enabled: false
   replicaCount: 1
@@ -51,12 +51,12 @@ spring:
     env: stg   
   serviceAccount:
     create: false
-  # fullnameOverride: "spring"
+  fullnameOverride: "spring"
 
-managedCertificateEnabled: false
-managedCertificate:
-  name: hello-apps-certificate
-  domains: 
+managedCertificateEnabled: true
+managedCertificates:
+  - name: hello-apps-certificate
+    domains: 
     - angular-stg.goinit.net
     - react-stg.goinit.net
 
@@ -83,7 +83,7 @@ ingress:
             pathType: Prefix
             backend:
               service:
-                name: stg-react
+                name: react
                 port:
                   number: 80 
     - host: angular-stg.goinit.net
@@ -93,7 +93,7 @@ ingress:
             pathType: Prefix
             backend:
               service:
-                name: stg-angular
+                name: angular
                 port: 
                   number: 80 
   tls: []
