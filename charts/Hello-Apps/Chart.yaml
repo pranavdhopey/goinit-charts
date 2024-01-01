@@ -1,0 +1,23 @@
+apiVersion: v2
+appVersion: 1.0.0
+dependencies:
+- condition: angular.enabled
+  name: angular
+  repository: file://charts/angular
+  version: 0.1.0
+- condition: react.enabled
+  name: react
+  repository: file://charts/react
+  version: 0.1.0
+- condition: spring.enabled
+  name: spring
+  repository: file://charts/spring
+  version: 0.1.0
+- condition: nodejs.enabled
+  name: nodejs
+  repository: file://charts/nodejs
+  version: 0.1.0
+description: A Helm chart for Hello Apps
+name: hello-apps
+type: application
+version: 0.1.0

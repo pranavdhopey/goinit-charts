@@ -1,0 +1,102 @@
+angular:
+  enabled: true
+  replicaCount: 1
+  image:
+    repository: pranavdhopey/angular-app
+    pullPolicy: IfNotPresent
+    tag: ""
+  labels:
+    env: stg   
+  serviceAccount:
+    create: false
+  fullnameOverride: "angular"
+  service:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+react:
+  enabled: false
+  replicaCount: 1
+  image:
+    repository: pranavdhopey/react-app
+    pullPolicy: IfNotPresent
+    tag: ""
+  labels:
+    env: stg   
+  serviceAccount:
+    create: false
+  fullnameOverride: "react"
+  service:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+nodejs:
+  enabled: false
+  replicaCount: 1
+  image:
+    repository: pranavdhopey/nodejs-app
+    pullPolicy: IfNotPresent
+    tag: ""
+  labels:
+    env: stg   
+  serviceAccount:
+    create: false
+    fullnameOverride: "nodejs"
+spring:
+  enabled: false
+  replicaCount: 1
+  image:
+    repository: pranavdhopey/spring-app
+    pullPolicy: IfNotPresent
+    tag: ""
+  labels:
+    env: stg   
+  serviceAccount:
+    create: false
+  fullnameOverride: "spring"
+
+managedCertificateEnabled: true
+managedCertificates:
+  - name: hello-apps-certificate
+    domains: 
+    - angular-stg.goinit.net
+    - react-stg.goinit.net
+
+frontendConfigEnabled: false
+frontendConfig:
+  name: hello-apps-frontend-config
+  redirectToHttps:
+    enabled: true
+    responseCodeName: MOVED_PERMANENTLY_DEFAULT
+  # sslPolicy: gke-ingress-ssl-policy
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: 
+    kubernetes.io/ingress.class: gce
+    # networking.gke.io/managed-certificates: "hello-apps-certificate" 
+    # networking.gke.io/v1beta1.FrontendConfig: "hello-apps-frontend-config"
+  hosts:
+    - host: react-stg.goinit.net
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: react
+                port:
+                  number: 80 
+    - host: angular-stg.goinit.net
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: angular
+                port: 
+                  number: 80 
+  tls: []
+  # - secretName: chart-example-tls
+  #   hosts:
+  #     - chart-example.local
