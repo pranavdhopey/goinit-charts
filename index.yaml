@@ -1,0 +1,31 @@
+apiVersion: v1
+entries:
+  hello-apps:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-01-01T06:49:44.170286282Z"
+    dependencies:
+    - condition: angular.enabled
+      name: angular
+      repository: file://charts/angular
+      version: 0.1.0
+    - condition: react.enabled
+      name: react
+      repository: file://charts/react
+      version: 0.1.0
+    - condition: spring.enabled
+      name: spring
+      repository: file://charts/spring
+      version: 0.1.0
+    - condition: nodejs.enabled
+      name: nodejs
+      repository: file://charts/nodejs
+      version: 0.1.0
+    description: A Helm chart for Hello Apps
+    digest: 78060d9e328d05a0daf99d884c5f0f4b23b325f429c195f0e652eb0f94b642e5
+    name: hello-apps
+    type: application
+    urls:
+    - https://github.com/pranavdhopey/goinit-charts/releases/download/hello-apps-0.1.0/hello-apps-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-01-01T06:49:44.1702958Z"
